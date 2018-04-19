@@ -1,0 +1,47 @@
+<?php
+function myArrayMerge(...$arrays){
+    $maxLength = 0;
+    foreach ($arrays as $array){
+        $maxLength = max(count($array), $maxLength);
+    }
+    $result = [];
+    for ($i = 0; $i < $maxLength; $i++){
+        foreach ($arrays as $array){
+            if (isset($array[$i])){
+                $result[] = $array[$i];
+            }
+        };
+    }
+    return $result;
+}
+    print_r(myArrayMerge([1,2,3], ['a','b','c']));
+
+function myArrayUnique ($arr){
+        $result = [];
+        foreach ($arr as $elem) {
+            if (in_array($elem, $result) == false) {
+                $result[] = $elem;
+            }
+        }
+        return $result;
+    }
+    print_r(myArrayUnique([1, 1, 1, 2, 2, 2, 3, 3, 3]));
+
+
+    function myRound($value, $precision) {
+        $value = $value * pow(10, $precision);
+        $mode   = ($value*10) % 10;
+        $value = (int)$value;
+        if ($mode >= 5) {
+            $value++;
+        }
+        return $value / pow(10, $precision);
+    }
+  
+    var_dump(myRound(0.1, 0));
+    var_dump(myRound(0.6, 0));
+    var_dump(myRound(1,111, 1));
+    var_dump(myRound(0.999, 2));
+    var_dump(myRound(128.759042, 2));
+    var_dump(myRound(35.797979, 3));
+    var_dump(myRound(100.987654321, 7));

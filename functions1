@@ -26,18 +26,52 @@ function myArrayUnique ($arr){
         return $result;
     }
     print_r(myArrayUnique([1, 1, 1, 2, 2, 2, 3, 3, 3]));
+  
+function myImplode1($arr)
+{
+    $res = null;
+    $i = 0;
+    foreach ($arr as $value) {
+        $res .= $value;
+    }
 
+    return $res;
+}
 
-    function myRound($value, $precision) {
-        $value = $value * pow(10, $precision);
-        $mode   = ($value*10) % 10;
-        $value = (int)$value;
-        if ($mode >= 5) {
-            $value++;
+function customTrim($string)
+{
+    $i = 0;
+    $arr = [];
+    while (isset($string{$i})) {
+        $arr[] = $string{$i};
+        $i++;
+    }
+
+    foreach ($arr as $key => $value) {
+        if ($value == ' ') {
+            unset($arr[$key]);
+        } else {
+            break(1);
+        }
+    }
+
+    for ($i = 0; $i >= 10; $i++) {
+        var_dump($i);
+    }
+//    var_dump($arr);
+
+    return $string;
+}
+
+function myRound($value, $precision) {
+    $value = $value * pow(10, $precision);
+    $mode = ($value*10) % 10;
+    $value = (int)$value;
+    if ($mode >= 5) {
+        $value++;
         }
         return $value / pow(10, $precision);
     }
-  
     var_dump(myRound(0.1, 0));
     var_dump(myRound(0.6, 0));
     var_dump(myRound(1,111, 1));

@@ -10,3 +10,32 @@ function arrayKeys($arr){
     return $keys;
 }
 var_dump(arrayKeys($arr));
+
+function myMin($arr){
+    $arr = array(1, 2, 3, 4, 5);
+    $min = null;
+    foreach ($arr as $val) {
+        if ($min == null) {
+            $min = $val;
+        } else {
+            $min = ($val<$min ? $val : $min);
+        }
+    }
+    return $min;
+}
+var_dump(myMin($min));
+
+function myMax($arr){
+    $arr = array(1, 2, 3, 4, 5);
+    $max = null;
+    foreach ($arr as $val) {
+        if ($max == null) {
+            $max = $val;
+        } else {
+            $max = ($val>$max ? $val : $max);
+        }
+    }
+    return $max;
+}
+var_dump(myMax($max));
+

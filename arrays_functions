@@ -39,3 +39,33 @@ function myMax($arr){
 }
 var_dump(myMax($max));
 
+function myArrayDiff(array $arr1, array $arr2)
+{
+    $diff = array();
+    foreach ($arr1 as $key1 => $el1) {
+        $pos = array_search($el1, $arr2);
+        if ($pos === false) {
+            $diff[$key1] = $el1;
+        } else {
+            unset($arr2[$pos]);
+        }
+    }
+    return $diff;
+}
+$arr1 = array("11", "22", "33", "44");
+$arr2 = array("11", "22");
+var_dump(myArrayDiff($arr1, $arr2));
+
+function myArrayCombine($keys, $values) {
+  $keys    = array_values($keys);
+  $values  = array_values($values);
+  $combined = array ();
+  for ($i = 0, $cnt = count($values); $i < $cnt; $i++) {
+   $combined[$keys[$i]] = $values[$i];
+  }
+  return $combined;
+ }
+ $keys = ['Real Madrid', 'Milan', 'Bayern'];
+ $values = [12, 7, 5];
+ var_dump(myArrayCombine($keys, $values));
+

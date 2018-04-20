@@ -1,0 +1,12 @@
+<?php
+function arrayKeys($arr){
+    $arr = array('a'=>1, 'b'=>2, 'c'=>3);
+    $keys = array();
+    foreach ($arr as $key=>$val) {
+        if (is_string($key)) {
+            $keys[] = $key;
+        }
+    }
+    return $keys;
+}
+var_dump(arrayKeys($arr));
